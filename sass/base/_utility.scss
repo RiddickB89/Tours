@@ -1,0 +1,77 @@
+.margin-top--big {
+  margin-top: -20rem;
+}
+
+.margin-top--medium {
+  margin-top: -10rem;
+}
+
+.margin-top--medium-1 {
+  margin-top: 10rem;
+  @include respond(tablet) {
+    margin-top: 5rem;
+  }
+}
+
+.margin-top--small {
+  margin-top: 6rem;
+}
+
+.margin-bottom--verylow {
+  margin-bottom: 1rem;
+}
+
+.margin-bottom--low {
+  margin-bottom: 2rem;
+  @include respond(tablet) {
+    margin-bottom: 3rem;
+  }
+  @include respond(phone) {
+    margin-bottom: 4rem;
+  }
+}
+
+.margin-bottom--medium {
+  margin-bottom: 4rem;
+}
+
+.margin-bottom--big {
+  margin-bottom: 6rem;
+  @include respond(tablet) {
+    margin-bottom: 2rem;
+  }
+}
+
+.margin-bottom--huge {
+  margin-bottom: 8rem;
+  @include respond(big-phone) {
+    margin-bottom: 5rem;
+  }
+}
+
+.margin-bottom--veryhuge {
+  margin-bottom: 10rem;
+  @include respond(big-phone) {
+    margin-bottom: 8rem;
+  }
+}
+
+.view {
+  max-width: 114rem;
+  margin: 0 auto;
+  @include respond(very-small-tablet) {
+    max-width: 65rem;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-center--left {
+  text-align: left;
+}
+
+.inline-block {
+  display: inline-block;
+}

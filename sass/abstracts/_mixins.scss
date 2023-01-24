@@ -1,0 +1,65 @@
+@mixin btn-main-prop() {
+  display: inline-block;
+  font-size: $fontsize-normal;
+  font-weight: 500;
+  padding: 1.5rem 3rem;
+  border-radius: 10rem;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: $transition-fast;
+}
+
+@mixin btn-dimension-sub {
+  display: inline-block;
+  font-size: $fontsize-normal;
+  font-weight: 500;
+  padding-bottom: 2rem;
+}
+
+@mixin font-color($color) {
+  background: $color;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@mixin transform-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint== desktop {
+    @media only screen and (max-width: 79em) {
+      @content;
+    }
+  }
+  @if $breakpoint== small-desktop {
+    @media only screen and (max-width: 67.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint== tablet {
+    @media only screen and (max-width: 60em) {
+      @content;
+    }
+  }
+  @if $breakpoint== small-tablet {
+    @media only screen and (max-width: 52em) {
+      @content;
+    }
+  }
+  @if $breakpoint== big-phone {
+    @media only screen and (max-width: 41em) {
+      @content;
+    }
+  }
+  @if $breakpoint== phone {
+    @media only screen and (max-width: 30em) {
+      @content;
+    }
+  }
+}

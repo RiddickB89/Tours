@@ -1,0 +1,114 @@
+.form {
+  width: 50%;
+  padding: 5rem 0 5rem 5rem;
+  text-align: left;
+
+  & .heading-secondary {
+    text-align: left;
+  }
+
+  @include respond(desktop) {
+    width: 60%;
+  }
+  @include respond(tablet) {
+    width: 100%;
+    text-align: center;
+    padding: 5rem;
+    & .heading-secondary {
+      text-align: center;
+    }
+    @include respond(big-phone) {
+      padding: 3rem;
+    }
+    @include respond(phone) {
+      padding: 3rem 0;
+    }
+  }
+
+  &__text {
+    position: relative;
+    margin-bottom: 1.8rem;
+    @include respond(tablet) {
+      text-align: -webkit-center;
+    }
+
+    &-input {
+      font-family: inherit;
+      font-size: $fontsize-normal;
+      font-weight: 300;
+      padding: 1.5rem 2rem;
+      display: block;
+      width: 85%;
+      border: none;
+      outline: none;
+      box-shadow: $shadow-small;
+      border-bottom: 0.3rem solid transparent;
+      transition: $transition-fast;
+
+      &:focus:invalid {
+        border-bottom: 0.3rem solid #f03e3e;
+      }
+
+      &:focus:valid {
+        border-bottom: 0.3rem solid #1a8d1a;
+      }
+    }
+
+    &-label {
+      display: inline-block;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      padding-left: 2rem;
+      transition: $transition-fast;
+    }
+
+    &-input:placeholder-shown + &-label {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-3rem);
+    }
+
+    &::placeholder {
+      color: $grey-light;
+    }
+  }
+
+  &__radio {
+    display: inline-block;
+    position: relative;
+    width: 42.5%;
+    margin-bottom: 5rem;
+
+    &-input {
+      margin-right: 3rem;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &-label {
+      font-size: $fontsize-normal;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+    }
+
+    &-input:checked + &-label > .form__check {
+      background-color: $medium-green;
+    }
+  }
+
+  &__check {
+    position: absolute;
+    top: 50%;
+    left: -20%;
+    transform: translate(-50%, -50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-block;
+    border-radius: 50%;
+    outline: 0.4rem solid $medium-green;
+    outline-offset: 0.4rem;
+    transition: $transition-fast;
+  }
+}

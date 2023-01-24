@@ -1,0 +1,5 @@
+.icon {
+  font-size: 7.2rem;
+  font-weight: 300;
+  @include font-color(linear-gradient(to right, $light-green, $dark-green));
+}

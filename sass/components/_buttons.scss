@@ -1,0 +1,82 @@
+.btn {
+  &,
+  &:link,
+  &:visited {
+    @include btn-main-prop();
+    position: relative;
+  }
+
+  &::after {
+    content: "";
+    @include btn-main-prop();
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: $shadow-big;
+
+    &::after {
+      opacity: 0;
+      transform: scale(1.4, 1.7);
+    }
+  }
+
+  &:active {
+    transform: translate(-0.1rem);
+    box-shadow: $shadow-small;
+  }
+
+  &--white {
+    background-color: $white;
+    color: $grey;
+    &::after {
+      background-color: $white;
+      color: transparent;
+    }
+  }
+
+  &--green {
+    background-color: $medium-green;
+    color: $white;
+    &::after {
+      background-color: $medium-green;
+      color: transparent;
+    }
+  }
+}
+
+.btn-animated {
+  animation: move-up 0.8s ease-out;
+}
+
+.btn-small {
+  &,
+  &:link,
+  &:visited {
+    display: inline-block;
+    font-size: $fontsize-normal;
+    font-weight: 400;
+    color: $dark-green;
+    border-bottom: 0.1rem solid $dark-green;
+    text-decoration: none;
+    padding: 0.3rem 0;
+    transition: $transition-fast;
+  }
+  &:hover {
+    transform: translateY(-0.3rem);
+    background-color: $dark-green;
+    color: $white;
+    border-bottom: 0.1rem solid transparent;
+    box-shadow: $shadow-medium;
+  }
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: $shadow-small;
+  }
+}

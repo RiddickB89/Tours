@@ -1,0 +1,74 @@
+.story {
+  background-color: rgba($white, 0.6);
+  width: 60%;
+  margin: 0 auto;
+  padding: 6rem 6rem 6rem 9rem;
+  transform: skewX(-12deg);
+  box-shadow: $shadow-medium;
+  border-radius: 0.2rem;
+  @include respond(small-desktop) {
+    padding: 3rem 3rem 3rem 6rem;
+    width: 70%;
+    transform: skewX(0deg);
+  }
+  @include respond(big-phone) {
+    width: 75%;
+  }
+
+  &__figure {
+    width: 15rem;
+    height: 15rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    float: left;
+    -webkit-shape-outside: circle(50%);
+    shape-outside: circle(50%);
+    transform: translateX(-3rem) skewX(12deg);
+    clip-path: circle(50%);
+    @supports (-webkit-shape-outside: circle(50%)) {
+      -webkit-shape-outside: circle(50%);
+      shape-outside: circle(50%);
+    }
+    @include respond(small-desktop) {
+      transform: translateX(-3rem) skewX(0deg);
+    }
+  }
+
+  &__img {
+    height: 100%;
+    transform: scale(1.4) translatex(-2.5rem);
+    transition: $transition-slow;
+  }
+
+  &__figcaption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    font-size: $fontsize-normal;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $white;
+    text-align: center;
+    opacity: 0;
+    transition: $transition-slow;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+    @include respond(small-desktop) {
+      transform: skewX(0deg);
+    }
+  }
+
+  &:hover &__img {
+    transform: scale(1) translateX(-4rem);
+    filter: blur(0.3rem) brightness(80%);
+  }
+
+  &:hover &__figcaption {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,41 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  scroll-behavior: smooth;
+}
+
+html {
+  font-size: 62.5%;
+
+  @include respond(desktop) {
+    font-size: 57%;
+  }
+
+  @include respond(small-desktop) {
+    font-size: 54%;
+  }
+  @include respond(tablet) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $grey;
+  box-sizing: border-box;
+  padding: 2rem;
+  position: relative;
+  @include respond(tablet) {
+    padding: 0rem;
+  }
+}
+
+::selection {
+  background-color: $medium-green;
+  color: $white;
+}

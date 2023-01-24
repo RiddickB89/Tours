@@ -1,0 +1,106 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: $transition-fast;
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__card {
+    margin: 5rem;
+    max-width: 150rem;
+    background-color: $white;
+    border-radius: 1rem;
+    box-shadow: $shadow-medium;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    overflow: hidden;
+    position: relative;
+    @include respond(desktop) {
+      margin: 1rem;
+    }
+    @include respond(big-phone) {
+      grid-template-columns: 1fr;
+    }
+
+    &-img-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @include respond(small-tablet) {
+        justify-content: space-evenly;
+      }
+      @include respond(big-phone) {
+        flex-direction: row;
+      }
+    }
+
+    &-close:link,
+    &-close:visited {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-size: 3rem;
+      font-weight: 500;
+      line-height: 1;
+      text-decoration: none;
+      color: $grey;
+      transition: $transition-fast;
+    }
+
+    &-close:hover,
+    &-close:active {
+      color: $light-green;
+    }
+
+    &-img {
+      display: block;
+      background-size: cover;
+      width: 100%;
+      @include respond(big-phone) {
+        width: 50%;
+        display: inline-block;
+      }
+    }
+
+    &-text {
+      padding: 2rem 5rem;
+
+      @include respond(small-desktop) {
+        padding: 0 4rem;
+      }
+      @include respond(small-tablet) {
+        padding: 1rem 4rem;
+      }
+      @include respond(big-phone) {
+        grid-row: 1/-1;
+        padding: 2rem;
+      }
+    }
+
+    &-paragraph {
+      font-size: $fontsize-normal;
+      font-weight: 400;
+      column-count: 2;
+      column-gap: 3rem;
+      column-rule: 2px solid $grey-bright;
+      hyphens: auto;
+      @include respond(tablet) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

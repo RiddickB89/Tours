@@ -1,0 +1,65 @@
+.composition {
+  position: relative;
+
+  &__img {
+    position: absolute;
+    height: 25rem;
+    transition: $transition-fast;
+    box-shadow: $shadow-medium;
+    cursor: pointer;
+    @include respond(desktop) {
+      height: 20rem;
+    }
+    @include respond(tablet) {
+      transform: translateX(-50%);
+    }
+    @include respond(big-phone) {
+      height: 15rem;
+    }
+
+    &:hover {
+      outline-offset: 1rem;
+      outline: 1rem solid $dark-green;
+      transform: scale(1.1);
+      z-index: 9999;
+      @include respond(tablet) {
+        transform: translateX(-50%) scale(1.1);
+      }
+    }
+  }
+
+  &:hover &__img:not(:hover) {
+    transform: scale(0.95);
+    @include respond(tablet) {
+      transform: translateX(-50%) scale(0.95);
+    }
+  }
+
+  &__img--1 {
+    top: -2rem;
+    left: 0;
+    @include respond(tablet) {
+      top: 4rem;
+      left: 30%;
+    }
+  }
+
+  &__img--2 {
+    top: 2rem;
+    left: 20rem;
+    @include respond(tablet) {
+      top: 2rem;
+      left: 50%;
+      z-index: 50;
+    }
+  }
+
+  &__img--3 {
+    top: 10rem;
+    left: 9rem;
+    @include respond(tablet) {
+      top: 6rem;
+      left: 70%;
+    }
+  }
+}
